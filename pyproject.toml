@@ -1,0 +1,19 @@
+[project]
+name = "kqe-fm"
+version = "1.0.0"
+description = "KQE-FM: a quantum foundation model for single-cell atlases, computed once and applied unchanged to new atlases"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Henry Han", email = "Henry_Han@baylor.edu"}]
+requires-python = ">=3.9"
+dependencies = ["numpy>=1.22", "scipy>=1.9", "anndata>=0.8", "scKQE2 @ git+https://github.com/hank08819/scKQE-2.git"]
+[project.optional-dependencies]
+gpu = ["torch>=2.0"]
+test = ["pytest"]
+[project.scripts]
+kqefm = "kqefm.cli:main"
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+[tool.setuptools.packages.find]
+include = ["kqefm*"]
